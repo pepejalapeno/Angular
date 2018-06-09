@@ -1,0 +1,33 @@
+
+<h1>Directivas</h1>
+<div class="container">
+    Marca: <input type="text" [(ngModel)]="marca"/>
+    <br/>
+    Modelo: <input type="text" [(ngModel)]="modelo"/>
+    <br/>
+    Año: <input type="text" [(ngModel)]="anio"/>
+    <br/>
+    <div class="container" [(ngClass)]="{
+      borderRed:marca === 'Nissan',
+      borderRed:marca === 'Mazda',
+      borderRed:marca === 'Toyota'}"></div>
+<ul>
+  <li>{{marca}}</li>
+  <li>{{modelo}}</li>
+  <li>{{anio}}</li>
+</ul>
+</div>
+<div class="container">
+  <button
+    *ngIf="!esVisible"
+    (click)="muestraMarcas()">Mostrar Marcas</button>
+  <button
+    *ngIf="esVisible"
+    (click)="escondeMarcas()">Esconder Marcas</button>
+
+  <h1>Nuestro Arreglo</h1>
+
+  <ul id="autos" *ngIf="esVisible">
+    <li *ngFor="let marca of marcas">{{marca}}</li>
+  </ul>
+</div>
